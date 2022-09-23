@@ -320,9 +320,9 @@ impl IndexAlgorithm {
         match self {
             IndexAlgorithm::BTree => true,
             IndexAlgorithm::Hash => true,
-            IndexAlgorithm::Gist => r#type.is_string(),
+            IndexAlgorithm::Gist => true,
             IndexAlgorithm::Gin => r#type.is_json() || field.ast_field().arity.is_list(),
-            IndexAlgorithm::SpGist => r#type.is_string(),
+            IndexAlgorithm::SpGist => true,
             IndexAlgorithm::Brin => {
                 r#type.is_string()
                     || r#type.is_bytes()
